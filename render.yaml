@@ -1,0 +1,24 @@
+services:
+  - type: web
+    name: sigmagpt-backend
+    runtime: node
+    buildCommand: cd Backend && npm install
+    startCommand: cd Backend && npm start
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
+      - key: FRONTEND_URL
+        value: "https://${RENDER_EXTERNAL_HOSTNAME}"
+    
+  - type: web
+    name: sigmagpt-frontend
+    runtime: node
+    buildCommand: cd Frontend && npm install && npm run build
+    startCommand: cd Frontend && npm run preview
+    envVars:
+      - key: VITE_API_URL
+        value: "https://sigmagpt-backend.onrender.com/api"
