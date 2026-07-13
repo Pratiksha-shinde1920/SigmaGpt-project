@@ -18,7 +18,8 @@ services:
     name: sigmagpt-frontend
     runtime: node
     buildCommand: cd Frontend && npm install && npm run build
-    startCommand: cd Frontend && npm run preview
+    startCommand: cd Frontend && npm run build && npx serve -s dist -l 3000
+
     envVars:
       - key: VITE_API_URL
         value: "https://sigmagpt-backend.onrender.com/api"

@@ -15,6 +15,7 @@
     "react-markdown": "^10.1.0",
     "react-spinners": "^0.17.0",
     "rehype-highlight": "^7.0.2",
+    "serve": "^14.2.6",
     "uuid": "^11.1.0"
   },
   "devDependencies": {
@@ -29,4 +30,3 @@
     "vite": "^7.0.0"
   }
 }
-
