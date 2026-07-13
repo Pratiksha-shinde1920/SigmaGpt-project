@@ -5,6 +5,8 @@ import mongoose from "mongoose";
 import chatRoutes from "./routes/chat.js";
 
 const app = express();
+console.log("FRONTEND_URL:", process.env.FRONTEND_URL);
+console.log("PORT:", process.env.PORT || 8080);
 
 // Get port from environment or use default
 const PORT = process.env.PORT || 8080;

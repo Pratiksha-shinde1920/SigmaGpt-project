@@ -12,13 +12,13 @@ services:
       - key: GROQ_API_KEY
         sync: false
       - key: FRONTEND_URL
-        value: "https://${RENDER_EXTERNAL_HOSTNAME}"
-    
+        value: "https://sigmagpt-frontend.onrender.com"
+
   - type: web
     name: sigmagpt-frontend
     runtime: node
     buildCommand: cd Frontend && npm install && npm run build
-    startCommand: cd Frontend && npm run build && npx serve -s dist -l 3000
+    startCommand: cd Frontend && npm run build && npx serve -s dist -l $PORT
 
     envVars:
       - key: VITE_API_URL
