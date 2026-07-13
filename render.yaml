@@ -5,11 +5,15 @@ services:
     buildCommand: cd Backend && npm install
     startCommand: cd Backend && npm start
     envVars:
+      - key: NODE_ENV
+        value: "production"
+      - key: PORT
+        value: "8080"
       - key: MONGODB_URI
         sync: false
-      - key: OPENAI_API_KEY
-        sync: false
       - key: GROQ_API_KEY
+        sync: false
+      - key: OPENAI_API_KEY
         sync: false
       - key: FRONTEND_URL
         value: "https://sigmagpt-frontend.onrender.com"
@@ -18,8 +22,7 @@ services:
     name: sigmagpt-frontend
     runtime: node
     buildCommand: cd Frontend && npm install && npm run build
-    startCommand: cd Frontend && npm run build && npx serve -s dist -l $PORT
-
+    startCommand: cd Frontend && npx serve -s dist -l $PORT
     envVars:
       - key: VITE_API_URL
         value: "https://sigmagpt-backend.onrender.com/api"
